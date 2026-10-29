@@ -1,0 +1,22 @@
+title: Rick Debnath
+description: Portfolio of Rick Debnath, PhD
+url: "https://rick-dn.github.io"
+baseurl: ""
+
+social:
+  github: https://github.com/rick-dn?tab=repositories
+  linkedin: https://www.linkedin.com/in/rick-debnath-phd-0a136471/
+  calendly: https://calendly.com/rick-dn
+
+# Optional: path to profile photo and resume, e.g. /assets/images/profile.jpg, /assets/resume.pdf
+photo: ""
+resume: ""
+
+collections:
+  projects:
+    output: false   # set to true when adding individual project pages
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock

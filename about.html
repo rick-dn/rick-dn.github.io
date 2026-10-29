@@ -1,0 +1,41 @@
+---
+layout: default
+title: About
+permalink: /about/
+---
+<section class="about-intro">
+  {% if site.photo != "" %}
+  <img class="profile-photo" src="{{ site.photo | relative_url }}" alt="{{ site.title }}">
+  {% else %}
+  <div class="profile-photo profile-placeholder" aria-hidden="true">RD</div>
+  {% endif %}
+  <div>
+    <h1 class="page-title">{{ site.title }}, PhD</h1>
+    <p class="subtitle">TODO: your title / role</p>
+    {% if site.resume != "" %}
+    <a class="button" href="{{ site.resume | relative_url }}" download>Download Resume</a>
+    {% endif %}
+  </div>
+</section>
+
+<section>
+  <h2 class="section-heading">Bio</h2>
+  <p>TODO: a short bio.</p>
+</section>
+
+<section>
+  <h2 class="section-heading">Skills</h2>
+  <ul class="tags">
+    <li>TODO</li>
+  </ul>
+</section>
+
+<section>
+  <h2 class="section-heading">Experience</h2>
+  <p>TODO</p>
+</section>
+
+<section>
+  <h2 class="section-heading">Education</h2>
+  <p>TODO</p>
+</section>

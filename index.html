@@ -1,0 +1,35 @@
+---
+layout: default
+title: Projects
+---
+<h1 class="page-title">Projects</h1>
+
+{% assign sorted = site.projects | sort: "date" | reverse %}
+{% assign years = sorted | group_by_exp: "p", "p.date | date: '%Y'" %}
+
+{% for year in years %}
+<section class="year-group">
+  <h2 class="section-heading">{{ year.name }}</h2>
+  <ul class="project-list">
+    {% for p in year.items %}
+    <li class="project-card">
+      {% if p.image %}
+      <img class="project-thumb" src="{{ p.image | relative_url }}" alt="{{ p.title }}" loading="lazy">
+      {% endif %}
+      <div class="project-body">
+        <time class="project-date" datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: "%b %Y" }}</time>
+        <h3 class="project-title">{{ p.title }}</h3>
+        <p>{{ p.summary }}</p>
+        {% if p.tags %}
+        <ul class="tags">{% for t in p.tags %}<li>{{ t }}</li>{% endfor %}</ul>
+        {% endif %}
+        <p class="project-links">
+          {% if p.repo %}<a href="{{ p.repo }}" target="_blank" rel="noopener">Code ↗</a>{% endif %}
+          {% if p.demo %}<a href="{{ p.demo }}" target="_blank" rel="noopener">Demo ↗</a>{% endif %}
+        </p>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endfor %}

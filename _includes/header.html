@@ -1,0 +1,21 @@
+<header class="site-bar site-header">
+  <div class="container header-inner">
+    <a class="site-name" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle menu">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+
+    <nav id="site-nav" class="site-nav">
+      <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}aria-current="page"{% endif %}>Projects</a>
+      <a href="{{ '/about/' | relative_url }}" {% if page.url == '/about/' %}aria-current="page"{% endif %}>About</a>
+      <a href="{{ site.social.calendly | default: '#' }}" target="_blank" rel="noopener">Contact Me ↗</a>
+      <a class="icon-link" href="{{ site.social.github }}" target="_blank" rel="noopener" aria-label="GitHub">
+        {% include icon-github.svg %}
+      </a>
+      <a class="icon-link" href="{{ site.social.linkedin }}" target="_blank" rel="noopener" aria-label="LinkedIn">
+        {% include icon-linkedin.svg %}
+      </a>
+    </nav>
+  </div>
+</header>
