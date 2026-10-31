@@ -14,16 +14,18 @@ title: Projects
     {% for p in year.items %}
     <li class="project-card">
       {% if p.image %}
-      <img class="project-thumb" src="{{ p.image | relative_url }}" alt="{{ p.title }}" loading="lazy">
+      <img class="project-thumb{% if p.image_fit == 'contain' %} thumb-contain{% endif %}" src="{{ p.image | relative_url }}" alt="{{ p.title }}" loading="lazy">
       {% endif %}
       <div class="project-body">
-        <time class="project-date" datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: "%b %Y" }}</time>
+        <time class="project-date" datetime="{{ p.date | date_to_xmlschema }}">{% if p.period %}{{ p.period }}{% else %}{{ p.date | date: "%b %Y" }}{% endif %}</time>
         <h3 class="project-title">{{ p.title }}</h3>
+        {% if p.subtitle %}<p class="project-subtitle">{{ p.subtitle }}</p>{% endif %}
         <p>{{ p.summary }}</p>
         {% if p.tags %}
         <ul class="tags">{% for t in p.tags %}<li>{{ t }}</li>{% endfor %}</ul>
         {% endif %}
         <p class="project-links">
+          {% if p.paper %}<a href="{{ p.paper }}" target="_blank" rel="noopener">Paper ↗</a>{% endif %}
           {% if p.repo %}<a href="{{ p.repo }}" target="_blank" rel="noopener">Code ↗</a>{% endif %}
           {% if p.demo %}<a href="{{ p.demo }}" target="_blank" rel="noopener">Demo ↗</a>{% endif %}
         </p>
