@@ -5,19 +5,33 @@ title: Projects
 <h1 class="page-title">Projects</h1>
 
 {% assign sorted = site.projects | sort: "date" | reverse %}
-{% assign years = sorted | group_by_exp: "p", "p.date | date: '%Y'" %}
+{% assign groups = sorted | group_by_exp: "p", "p.group" %}
 
-{% for year in years %}
+{% for group in groups %}
+{% assign first = group.items | first %}
 <section class="year-group">
-  <h2 class="section-heading">{{ year.name }}</h2>
+  <h2 class="section-heading">
+    {% if group.name and group.name != "" %}
+      {% if first.details %}<a href="{{ first.details | relative_url }}">{{ group.name }}</a>{% else %}{{ group.name }}{% endif %}
+      {% if first.period %}<span class="group-period">{{ first.period }}</span>{% endif %}
+    {% else %}
+      {{ first.date | date: "%Y" }}
+    {% endif %}
+  </h2>
   <ul class="project-list">
-    {% for p in year.items %}
-    <li class="project-card">
-      {% if p.image %}
+    {% for p in group.items %}
+    <li class="project-card{% if p.video %} project-card-video{% endif %}">
+      {% if p.video %}
+      <video class="project-video" controls preload="metadata" poster="{{ p.image | relative_url }}">
+        <source src="{{ p.video | relative_url }}" type="video/mp4">
+      </video>
+      {% elsif p.image %}
       <img class="project-thumb{% if p.image_fit == 'contain' %} thumb-contain{% endif %}" src="{{ p.image | relative_url }}" alt="{{ p.title }}" loading="lazy">
       {% endif %}
       <div class="project-body">
+        {% unless p.group %}
         <time class="project-date" datetime="{{ p.date | date_to_xmlschema }}">{% if p.period %}{{ p.period }}{% else %}{{ p.date | date: "%b %Y" }}{% endif %}</time>
+        {% endunless %}
         <h3 class="project-title">{% if p.details %}<a href="{{ p.details | relative_url }}">{{ p.title }}</a>{% else %}{{ p.title }}{% endif %}</h3>
         {% if p.subtitle %}<p class="project-subtitle">{{ p.subtitle }}</p>{% endif %}
         <p>{{ p.summary }}</p>
@@ -28,6 +42,7 @@ title: Projects
           {% if p.details %}<a href="{{ p.details | relative_url }}">Details →</a>{% endif %}
           {% if p.paper %}<a href="{{ p.paper }}" target="_blank" rel="noopener">Paper ↗</a>{% endif %}
           {% if p.repo %}<a href="{{ p.repo }}" target="_blank" rel="noopener">Code ↗</a>{% endif %}
+          {% if p.dataset %}<a href="{{ p.dataset }}" target="_blank" rel="noopener">Dataset ↗</a>{% endif %}
           {% if p.demo %}<a href="{{ p.demo }}" target="_blank" rel="noopener">Demo ↗</a>{% endif %}
         </p>
       </div>
