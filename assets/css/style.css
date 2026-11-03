@@ -150,7 +150,8 @@ section:nth-of-type(3n+3) .section-heading { color: var(--dark-orange); }
 .project-title a:hover { color: var(--deep-red); text-decoration: underline; }
 
 /* Card with video: video spans the card, text below */
-.project-card-video { flex-direction: column; }
+.project-card.project-card-video { flex-direction: column; }
+.project-body { flex: 1; min-width: 0; }
 .project-video { width: 100%; max-width: 640px; border-radius: 4px; background: #000; }
 
 /* Project detail page */
