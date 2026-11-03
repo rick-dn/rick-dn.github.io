@@ -187,6 +187,21 @@ section:nth-of-type(3n+3) .section-heading { color: var(--dark-orange); }
 }
 
 .subtitle { color: var(--muted); margin: 0 0 1rem; }
+.about-intro .subtitle { font-size: 1.15rem; font-weight: 600; color: var(--deep-red); }
+.bio { font-size: 1.05rem; margin-top: 1.5rem; }
+
+.focus-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+.focus-grid li { border: 1px solid var(--border); border-top: 4px solid var(--saffron); border-radius: 6px; padding: 1rem 1.1rem; }
+.focus-grid h3 { margin: 0 0 .4rem; font-size: 1.05rem; }
+.focus-grid p { margin: 0; }
+
+.org-list { display: grid; grid-template-columns: 6rem 1fr; gap: .4rem .75rem; margin: 0; }
+.org-list dt { font-weight: 700; }
+.org-list dd { margin: 0; }
+@media (max-width: 640px) {
+  .org-list { grid-template-columns: 1fr; }
+  .org-list dd { margin-bottom: .5rem; }
+}
 
 .button {
   display: inline-block;

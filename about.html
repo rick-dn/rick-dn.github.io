@@ -4,38 +4,65 @@ title: About
 permalink: /about/
 ---
 <section class="about-intro">
-  {% if site.photo != "" %}
   <img class="profile-photo" src="{{ site.photo | relative_url }}" alt="{{ site.title }}">
-  {% else %}
-  <div class="profile-photo profile-placeholder" aria-hidden="true">RD</div>
-  {% endif %}
   <div>
-    <h1 class="page-title">{{ site.title }}, PhD</h1>
-    <p class="subtitle">TODO: your title / role</p>
-    {% if site.resume != "" %}
-    <a class="button" href="{{ site.resume | relative_url }}" download>Download Resume</a>
-    {% endif %}
+    <h1 class="page-title">Dr Bappaditya (Rick) Debnath</h1>
+    <p class="subtitle">Robotics &amp; Perception Engineer</p>
+    <a class="button" href="{{ site.social.calendly }}" target="_blank" rel="noopener">Contact Me ↗</a>
   </div>
 </section>
 
 <section>
-  <h2 class="section-heading">Bio</h2>
-  <p>TODO: a short bio.</p>
+  <p class="bio">I build autonomous systems that see, from research to flight. I'm a robotics engineer with a PhD in computer vision, and I currently work on safety-critical autonomy for drones flying beyond visual line of sight. My work centres on <strong>perception and navigation</strong>: visual-inertial odometry, SLAM, GNSS-denied flight, state estimation and GNC. Along the way I've worked on 3D computer vision, medical imaging AI and agricultural robotics, across industry and academia (Oxford, King's College London, Lincoln). Before research, I spent my early career building enterprise software and infrastructure.</p>
 </section>
 
 <section>
-  <h2 class="section-heading">Skills</h2>
-  <ul class="tags">
-    <li>TODO</li>
+  <h2 class="section-heading">What I Work On</h2>
+  <ul class="focus-grid">
+    <li>
+      <h3>Perception &amp; Navigation</h3>
+      <p><strong>Visual-inertial odometry (VIO)</strong>, <strong>visual SLAM</strong> and <strong>GNSS-denied navigation</strong> for UAVs, with optical flow and camera–IMU fusion.</p>
+    </li>
+    <li>
+      <h3>GNC &amp; State Estimation</h3>
+      <p><strong>Guidance, navigation and control</strong>: EKF/ESKF sensor fusion, GPS-loss fallback and fault injection on ArduPilot.</p>
+    </li>
+    <li>
+      <h3>UAV Autonomy &amp; Safety</h3>
+      <p>Layered flight stacks on ROS 2, onboard failure modes for BVLOS, and SITL/HITL simulation.</p>
+    </li>
+    <li>
+      <h3>3D Computer Vision</h3>
+      <p>3D reconstruction, camera pose estimation, structure from motion, ICP and point tracking.</p>
+    </li>
+    <li>
+      <h3>Edge AI</h3>
+      <p>Real-time detection and tracking on NVIDIA Jetson and Raspberry Pi, with TensorRT and INT8 models.</p>
+    </li>
+    <li>
+      <h3>Medical &amp; Agri AI</h3>
+      <p>Medical image segmentation, diffusion-based synthetic data and in-silico trials; vision for robotic fruit picking.</p>
+    </li>
   </ul>
 </section>
 
 <section>
-  <h2 class="section-heading">Experience</h2>
-  <p>TODO</p>
+  <h2 class="section-heading">Where I've Worked</h2>
+  <dl class="org-list">
+    <dt>Industry</dt><dd>Skybound · AdSilico · IBM · PwC · Ericsson · TCS</dd>
+    <dt>Research</dt><dd>University of Oxford · King's College London · University of Lincoln · Edge Hill University</dd>
+  </dl>
 </section>
 
 <section>
-  <h2 class="section-heading">Education</h2>
-  <p>TODO</p>
+  <h2 class="section-heading">Education &amp; Research</h2>
+  <p>PhD in Computer Science (Edge Hill University) · MSc in Advanced Computer Science, Distinction (Loughborough University)</p>
+  <p>Published in the Journal of Field Robotics, ICRA, IROS, ICPR and MICCAI workshops. <a href="{{ site.social.scholar }}" target="_blank" rel="noopener">Google Scholar ↗</a></p>
+</section>
+
+<section>
+  <h2 class="section-heading">Toolbox</h2>
+  <ul class="tags">
+    <li>ROS 2</li><li>ArduPilot</li><li>PX4</li><li>MAVROS</li><li>OpenVINS</li><li>RTAB-Map</li><li>EKF / ESKF</li><li>Gazebo</li><li>SITL / HITL</li><li>OpenCV</li><li>PyTorch</li><li>TensorRT</li><li>NVIDIA Jetson</li><li>C++</li><li>Python</li>
+  </ul>
 </section>
