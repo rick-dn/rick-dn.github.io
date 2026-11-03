@@ -20,8 +20,12 @@ title: Projects
   </h2>
   <ul class="project-list">
     {% for p in group.items %}
-    <li class="project-card{% if p.video %} project-card-video{% endif %}">
-      {% if p.video %}
+    <li class="project-card{% if p.video or p.youtube %} project-card-video{% endif %}">
+      {% if p.youtube %}
+      <div class="video-embed{% if p.youtube_vertical %} video-embed-vertical{% endif %}">
+        <iframe src="https://www.youtube-nocookie.com/embed/{{ p.youtube }}" title="{{ p.title }}" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      {% elsif p.video %}
       <video class="project-video" controls preload="metadata" poster="{{ p.image | relative_url }}">
         <source src="{{ p.video | relative_url }}" type="video/mp4">
       </video>
