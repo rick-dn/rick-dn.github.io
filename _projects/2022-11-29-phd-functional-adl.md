@@ -6,4 +6,5 @@ summary: Built a multi-label dataset of 10 daily activities, each performed norm
 tags: [Deep Learning, Computer Vision, Activity Recognition, Healthcare AI, Dataset]
 image: /assets/images/phd-functional-adl.jpg
 paper: https://link.springer.com/chapter/10.1007/978-3-031-14771-5_13
+repo: https://github.com/rick-dn/functional-adl-reco
 ---

@@ -1,0 +1,9 @@
+---
+layout: default
+---
+<article class="project-page">
+  <p class="back-link"><a href="{{ '/' | relative_url }}">← All projects</a></p>
+  <h1 class="page-title">{{ page.title }}</h1>
+  {% if page.subtitle %}<p class="subtitle">{{ page.subtitle }}{% if page.period %} · {{ page.period }}{% endif %}</p>{% endif %}
+  {{ content }}
+</article>

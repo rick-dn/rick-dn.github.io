@@ -18,13 +18,14 @@ title: Projects
       {% endif %}
       <div class="project-body">
         <time class="project-date" datetime="{{ p.date | date_to_xmlschema }}">{% if p.period %}{{ p.period }}{% else %}{{ p.date | date: "%b %Y" }}{% endif %}</time>
-        <h3 class="project-title">{{ p.title }}</h3>
+        <h3 class="project-title">{% if p.details %}<a href="{{ p.details | relative_url }}">{{ p.title }}</a>{% else %}{{ p.title }}{% endif %}</h3>
         {% if p.subtitle %}<p class="project-subtitle">{{ p.subtitle }}</p>{% endif %}
         <p>{{ p.summary }}</p>
         {% if p.tags %}
         <ul class="tags">{% for t in p.tags %}<li>{{ t }}</li>{% endfor %}</ul>
         {% endif %}
         <p class="project-links">
+          {% if p.details %}<a href="{{ p.details | relative_url }}">Details →</a>{% endif %}
           {% if p.paper %}<a href="{{ p.paper }}" target="_blank" rel="noopener">Paper ↗</a>{% endif %}
           {% if p.repo %}<a href="{{ p.repo }}" target="_blank" rel="noopener">Code ↗</a>{% endif %}
           {% if p.demo %}<a href="{{ p.demo }}" target="_blank" rel="noopener">Demo ↗</a>{% endif %}
